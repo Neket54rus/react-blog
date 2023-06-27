@@ -1,13 +1,10 @@
 import { memo } from 'react';
-
-import { Counter } from '../../../components/Counter';
+import { useTranslation } from 'react-i18next';
 
 const MainPage = memo(() => {
-	return (
-		<div>
-			<Counter />
-		</div>
-	)
+	const { t } = useTranslation('main-page');
+
+	return <div>{t('Главная страница')}</div>;
 });
 
 export default MainPage;

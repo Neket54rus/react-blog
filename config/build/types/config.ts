@@ -5,6 +5,7 @@ export interface BuildPath {
 	entry: string // entry - главный js файлы
 	build: string // build - путь до папки со сборкой
 	html: string // html - пусть до корневого html
+	src: string // src - путь до корневой папки
 }
 
 // Интерфейс для глобальных переменных

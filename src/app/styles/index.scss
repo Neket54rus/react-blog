@@ -1,0 +1,40 @@
+@import './reset.scss';
+@import './variables/global.scss';
+@import './themes/light.scss';
+@import './themes/dark.scss';
+@import './fonts/fonts.scss';
+
+.app {
+	font: var(--font-m);
+	background: var(--bg-color);
+	color: var(--text-color);
+	min-height: 100vh;
+	transition: all 0.2s;
+}
+
+.content-page {
+	display: flex;
+}
+
+.page-wrapper {
+	flex-grow: 1;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 22px;
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--bg-light-color);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--icon-color);
+	border-radius: 38px;
+	border: none;
+}
+
+.hide {
+	opacity: 0;
+}

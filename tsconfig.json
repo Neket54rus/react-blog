@@ -9,11 +9,15 @@
 		"moduleResolution": "node", // Определяет каким способом будут импортироваться файлы
 		"esModuleInterop": true, // Для использования import
 		"allowSyntheticDefaultImports": true, // Для использования import
-		//"baseUrl": ".", // Корневой путь до файлов, для абсолютного импорта
+		"baseUrl": ".", // Корневой путь до файлов, для абсолютного импорта
+		// Указываем откуда будут идти абсолютные импорты
+		"paths": {
+			"*": ["./src/*"]
+		}
 	},
 	"ts-node": {
 		"compilerOptions": {
-			"module": "CommonJS", // Позволяет работать webpack с import/export
-		},
-	},
+			"module": "CommonJS" // Позволяет работать webpack с import/export
+		}
+	}
 }

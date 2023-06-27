@@ -1,0 +1,86 @@
+.Sidebar {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&.collapsed {
+		.content {
+			width: 50px;
+		}
+	}
+}
+
+.content {
+	background: var(--bg-light-color);
+	width: 220px;
+	height: 90%;
+	border-radius: 32px;
+	margin-left: 32px;
+	transition: width 0.4s, background 0.2s;
+	position: relative;
+}
+
+.switchers {
+	position: absolute;
+	bottom: 45px;
+	display: flex;
+	justify-content: center;
+	column-gap: 24px;
+	width: 100%;
+	transition: all 0.2s;
+
+	&.collapsed {
+		flex-direction: column;
+		align-items: center;
+		column-gap: 0;
+		row-gap: 24px;
+	}
+}
+
+.toggleBtn {
+	position: absolute;
+	line-height: 0;
+	right: 12px;
+	top: 50%;
+	transform: translateX(-50%);
+	transition: all 0.4s;
+
+	&.collapsed {
+		right: 50%;
+		rotate: 180deg;
+	}
+
+	&:hover {
+		.iconHover {
+			opacity: 1;
+		}
+	}
+}
+
+.icon {
+	path {
+		fill: var(--icon-color);
+		transition: all 0.2s;
+	}
+
+	&:hover {
+		path {
+			fill: var(--accent-color);
+		}
+	}
+}
+
+.iconHover {
+	position: absolute;
+	opacity: 0;
+	right: 0;
+	top: 3px;
+	z-index: -1;
+	filter: blur(4px);
+	transition: all 0.2s;
+
+	path {
+		fill: rgba(16, 55, 163, 0.6);
+	}
+}
