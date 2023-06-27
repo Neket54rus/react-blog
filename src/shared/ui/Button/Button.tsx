@@ -15,10 +15,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = memo((props: ButtonProps) => {
-	const { className, children, theme = ThemeButton.CLEAR, ...otherProps } = props;
+	const {
+		className, children, theme = ThemeButton.CLEAR, ...otherProps
+	} = props;
 
 	return (
-		<button className={classNames(cls.Button, {}, [className, cls[theme]])} {...otherProps}>
+		<button className={classNames(cls.Button, {}, [className, cls[theme]])} {...otherProps} type="button">
 			{children}
 		</button>
 	);

@@ -11,4 +11,4 @@ export function buildResolvers(options: BuildOptions): webpack.ResolveOptions {
 		mainFiles: ['index'], // Обозначаем главный файл
 		alias: {}, // Обозначение абсолютного ипорта
 	};
-};
+}

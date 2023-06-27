@@ -18,10 +18,10 @@ export function buildWebpackConfig(option: BuildOptions): webpack.Configuration 
 		},
 		plugins: buildPlugins(option), // Плагины для Webpack
 		module: {
-			rules: buildLoaders(option) // Обработка лоудеров. Лоудер - файл, который выходит за рамки JS
+			rules: buildLoaders(option), // Обработка лоудеров. Лоудер - файл, который выходит за рамки JS
 		},
 		resolve: buildResolvers(option), // Расшерения
 		devtool: option.isDev ? 'inline-source-map' : undefined, // Помогает отслеживать ошибки в большом колличестве файлов
 		devServer: option.isDev ? buildDevServer(option) : undefined, // Работа с серверов в режиме разработки
 	};
-};
+}

@@ -18,10 +18,10 @@ export const Navbar = memo((props: NavbarProps) => {
 	return (
 		<div className={classNames(cls.Navbar, {}, [className])}>
 			<div className={cls.links}>
-				<AppLink className={cls.mainLink} to='/'>
+				<AppLink className={cls.mainLink} to="/">
 					{t('Главная')}
 				</AppLink>
-				<AppLink to='/about'>{t('О сайте')}</AppLink>
+				<AppLink to="/about">{t('О сайте')}</AppLink>
 			</div>
 		</div>
 	);

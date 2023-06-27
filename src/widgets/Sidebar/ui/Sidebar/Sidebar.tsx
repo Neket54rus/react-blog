@@ -1,4 +1,6 @@
-import { memo, useCallback, useRef, useState } from 'react';
+import {
+	memo, useCallback, useRef, useState,
+} from 'react';
 
 import IconArrow from 'shared/assets/icons/icon-arrow.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,16 +18,16 @@ export const Sidebar = memo((props: SidebarProps) => {
 	const { className } = props;
 
 	const [collapsed, setCollapsed] = useState(false);
-	const switcherRef = useRef(null)
+	const switcherRef = useRef(null);
 
 	const onToggle = useCallback(() => {
 		setCollapsed((prev) => !prev);
 
-		switcherRef.current.classList.add('hide')	
+		switcherRef.current.classList.add('hide');
 		setTimeout(() => {
-			switcherRef.current.classList.toggle(cls.collapsed)
-			switcherRef.current.classList.remove('hide')
-		}, 200)
+			switcherRef.current.classList.toggle(cls.collapsed);
+			switcherRef.current.classList.remove('hide');
+		}, 200);
 	}, []);
 
 	return (

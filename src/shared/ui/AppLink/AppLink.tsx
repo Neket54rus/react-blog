@@ -12,7 +12,9 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
-	const { className, to, children, ...otherProps } = props;
+	const {
+		className, to, children, ...otherProps
+	} = props;
 
 	const match = useMatch(to);
 
