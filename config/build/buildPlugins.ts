@@ -7,10 +7,8 @@ import { BuildOptions } from './types/config';
 
 // Сборник плагинов для Webpack
 export function buildPlugins(option: BuildOptions): webpack.WebpackPluginInstance[] {
-	return [
+	const pluginsList = [
 		new webpack.ProgressPlugin(), // Отображает прогресс сборки
-		// Нужен для обновления контента на странице без перезагрузки
-		option.isDev && new webpack.HotModuleReplacementPlugin(),
 		new MiniCssExtractPlugin({
 			// Создает css файл
 			filename: 'css/[name].[contenthash:9].css', // формирования пути и названия файлов
@@ -25,10 +23,18 @@ export function buildPlugins(option: BuildOptions): webpack.WebpackPluginInstanc
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(option.isDev),
 		}),
-		// Нужен для обновления контента на странице без перезагрузки
-		option.isDev &&
+	];
+
+	if (option.isDev) {
+		pluginsList.push(
+			// Нужен для обновления контента на странице без перезагрузки
+			new webpack.HotModuleReplacementPlugin(),
+			// Нужен для обновления контента на странице без перезагрузки
 			new ReactRefreshWebpacPlugin({
 				overlay: false,
 			}),
-	];
+		);
+	}
+
+	return pluginsList;
 }
