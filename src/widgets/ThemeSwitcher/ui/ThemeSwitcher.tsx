@@ -3,8 +3,8 @@ import { memo } from 'react';
 import IconTheme from 'shared/assets/icons/icon-theme.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'shared/lib/useTheme/useTheme';
-
 import { Button } from 'shared/ui/Button/Button';
+
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
