@@ -1,5 +1,5 @@
 module.exports = {
-	env: { browser: true, es2021: true },
+	env: { browser: true, es2021: true, jest: true },
 	extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 'latest', sourceType: 'module' },
@@ -13,7 +13,7 @@ module.exports = {
 		'import/prefer-default-export': 'off',
 		'react/require-default-props': 'off',
 		'react/react-in-jsx-scope': 'off',
-		'react/jsx-props-no-spreading': 'warn',
+		// 'react/jsx-props-no-spreading': 'warn',
 		'react/function-component-definition': 'off',
 		'no-shadow': 'off',
 		'import/extensions': 'off',
@@ -38,5 +38,6 @@ module.exports = {
 		'object-curly-newline': 'off',
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': ['warn'],
+		'react/jsx-props-no-spreading': 'off',
 	},
 };
