@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -15,9 +15,9 @@ export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
 
 	const { t, i18n } = useTranslation();
 
-	const onToggle = () => {
+	const onToggle = useCallback(() => {
 		i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
-	};
+	}, [i18n]);
 
 	return (
 		<Button className={classNames(cls.LanguageSwitcher, {}, [className])} onClick={onToggle}>

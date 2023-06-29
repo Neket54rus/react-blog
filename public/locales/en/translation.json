@@ -2,5 +2,7 @@
 	"RU": "EN",
 	"Главная": "Main",
 	"О сайте": "About",
-	"Загрузка": "Loading"
+	"Загрузка": "Loading",
+	"Произошла непредвиденная ошибка": "An unexpected error has occurred",
+	"Обновить страницу": "Refresh the page"
 }

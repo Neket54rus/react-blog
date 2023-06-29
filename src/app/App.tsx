@@ -6,14 +6,16 @@ import { Sidebar } from 'widgets/Sidebar';
 
 import { AppRouter } from './providers/router';
 
-export const App = memo(() => (
-	<div className={classNames('app', {}, [])}>
-		<Suspense fallback="">
-			<div className="content-page">
-				<Sidebar />
-				<AppRouter />
-			</div>
-			<Navbar />
-		</Suspense>
-	</div>
-));
+export const App = memo(() => {
+	return (
+		<div className={classNames('app', {}, [])}>
+			<Suspense fallback="">
+				<div className="content-page">
+					<Sidebar />
+					<AppRouter />
+				</div>
+				<Navbar />
+			</Suspense>
+		</div>
+	);
+});
