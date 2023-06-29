@@ -1,4 +1,4 @@
-import { Mods, classNames } from './classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 
 describe('classNames', () => {
 	test('Корректное значение', () => {

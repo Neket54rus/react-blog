@@ -2,6 +2,7 @@ import ReactRefreshWebpacPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
@@ -29,6 +30,10 @@ export function buildPlugins(option: BuildOptions): webpack.WebpackPluginInstanc
 		pluginsList.push(
 			// Нужен для обновления контента на странице без перезагрузки
 			new webpack.HotModuleReplacementPlugin(),
+			// Нужен для прсмотра веса сборки
+			new BundleAnalyzerPlugin({
+				openAnalyzer: false,
+			}),
 			// Нужен для обновления контента на странице без перезагрузки
 			new ReactRefreshWebpacPlugin({
 				overlay: false,

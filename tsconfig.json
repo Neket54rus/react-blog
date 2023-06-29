@@ -12,12 +12,20 @@
 		"baseUrl": ".", // Корневой путь до файлов, для абсолютного импорта
 		// Указываем откуда будут идти абсолютные импорты
 		"paths": {
-			"*": ["./src/*"]
+			"*": [
+				"./src/*"
+			]
 		}
 	},
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS" // Позволяет работать webpack с import/export
 		}
-	}
+	},
+	// Указываем пути для TS
+	"include": [
+		"./config/jest/setupTests.ts",
+		"./src/**/*.ts",
+		"./src/**/*.tsx",
+	]
 }

@@ -15,7 +15,7 @@ export const PageLoader = memo((props: PageLoaderProps) => {
 	} = props;
 
 	return (
-		<div className={classNames(cls.PageLoader, {}, [className])}>
+		<div className={classNames(cls.PageLoader, {}, [className])} data-testid="page-loader">
 			<Loader />
 		</div>
 	);

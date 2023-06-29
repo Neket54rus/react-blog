@@ -20,7 +20,11 @@ export const LanguageSwitcher = memo((props: LanguageSwitcherProps) => {
 	}, [i18n]);
 
 	return (
-		<Button className={classNames(cls.LanguageSwitcher, {}, [className])} onClick={onToggle}>
+		<Button
+			className={classNames(cls.LanguageSwitcher, {}, [className])}
+			onClick={onToggle}
+			data-testid="switcher-btn"
+		>
 			{t('RU')}
 		</Button>
 	);

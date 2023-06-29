@@ -31,11 +31,12 @@ export const Sidebar = memo((props: SidebarProps) => {
 	}, []);
 
 	return (
-		<div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
+		<div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid="sidebar">
 			<div className={cls.content}>
 				<Button
 					className={classNames(cls.toggleBtn, { [cls.collapsed]: collapsed }, [])}
 					onClick={onToggle}
+					data-testid="toggle-btn"
 				>
 					<IconArrow className={cls.icon} />
 					<IconArrow className={cls.iconHover} />

@@ -41,4 +41,13 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'arrow-spacing': 'off',
 	},
+	overrides: [
+		{
+			files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+			rules: {
+				'i18next/no-literal-string': 'off',
+				'max-len': 'off',
+			},
+		},
+	],
 };

@@ -4,7 +4,7 @@ import './Loader.scss';
 
 export const Loader = memo(() => {
 	return (
-		<div className="lds-ellipsis">
+		<div className="lds-ellipsis" data-testid="loader">
 			<div />
 			<div />
 			<div />
