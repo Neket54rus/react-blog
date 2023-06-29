@@ -1,6 +1,7 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
 
+import { buildSassLoader } from './loaders/buildSassLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
 // Сборник лоудеров для Webpack
@@ -12,30 +13,9 @@ export function buildLoaders(option: BuildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/, // Исключения
 	};
 
-	const sassLoader = {
-		test: /\.s[ac]ss$/i,
-		use: [
-			option.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-			{
-				loader: 'css-loader',
-				options: {
-					modules: {
-						// Позволяет работать с css модулями
-						// Генерация модульных стилей только на файлы .module.
-						auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-						localIdentName: option.isDev ? '[name]__[local]' : '[hash:base64:8]', // Генерация названий
-					},
-				},
-			},
-			'sass-loader',
-		],
-		exclude: /node_modules/,
-	};
+	const sassLoader = buildSassLoader(option.isDev);
 
-	const svgLoader = {
-		test: /\.svg$/,
-		use: ['@svgr/webpack'],
-	};
+	const svgLoader = buildSvgLoader();
 
 	const fileLoader = {
 		test: /\.(png|jpe?g|gif)$/i,
