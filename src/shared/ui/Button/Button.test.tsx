@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
 	test('Рендер компонента Button', () => {
@@ -10,13 +10,13 @@ describe('Button', () => {
 	});
 
 	test('Рендер компонента Button c темой CLEAR', () => {
-		render(<Button theme={ThemeButton.CLEAR}>Test</Button>);
+		render(<Button theme={ButtonTheme.CLEAR}>Test</Button>);
 		const testButton = screen.getByText('Test');
 		expect(testButton).toHaveClass('clear');
 	});
 
 	test('Рендер компонента Button c темой OUTLINE', () => {
-		render(<Button theme={ThemeButton.OUTLINE}>Test</Button>);
+		render(<Button theme={ButtonTheme.OUTLINE}>Test</Button>);
 		const testButton = screen.getByText('Test');
 		expect(testButton).toHaveClass('outline');
 	});

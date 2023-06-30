@@ -1,16 +1,18 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
-import { Sidebar } from 'widgets/Sidebar';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+
+import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
 	test('Рендер компонента Sidebar', () => {
-		render(<Sidebar />);
+		componentRender(<Sidebar />);
 		const sidebar = screen.getByTestId('sidebar');
 		expect(sidebar).toBeInTheDocument();
 	});
 
 	test('Рендер компонента Sidebar с классом collapsed', () => {
-		render(<Sidebar />);
+		componentRender(<Sidebar />);
 		const toggleBtn = screen.getByTestId('toggle-btn');
 		fireEvent.click(toggleBtn);
 		const sidebar = screen.getByTestId('sidebar');

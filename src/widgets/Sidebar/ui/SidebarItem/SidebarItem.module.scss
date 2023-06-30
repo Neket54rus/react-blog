@@ -1,0 +1,33 @@
+.SidebarItem {}
+
+.iconWrapper {
+	opacity: 1;
+	transition: all 0.2s;
+	line-height: 0;
+}
+
+.icon {
+	path {
+		fill: none;
+
+		&:last-child {
+			fill: var(--icon-color);
+		}
+	}
+}
+
+.text {
+	opacity: 1;
+	transition: all 0.2s;
+
+	&.collapsed {
+		display: none;
+	}
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+	transition: all 0.2s;
+}

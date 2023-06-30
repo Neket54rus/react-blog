@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'shared/lib/useTheme/ThemeContext';
 
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 export default {
 	title: 'shared/Button',
@@ -18,22 +18,22 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const ClearLight = Template.bind({});
 ClearLight.args = {
-	theme: ThemeButton.CLEAR,
+	theme: ButtonTheme.CLEAR,
 };
 
 export const ClearDark = Template.bind({});
 ClearDark.args = {
-	theme: ThemeButton.CLEAR,
+	theme: ButtonTheme.CLEAR,
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OutlineLight = Template.bind({});
 OutlineLight.args = {
-	theme: ThemeButton.OUTLINE,
+	theme: ButtonTheme.OUTLINE,
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
-	theme: ThemeButton.OUTLINE,
+	theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
