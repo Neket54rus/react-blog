@@ -1,19 +1,20 @@
 import {
-	memo, useCallback, useMemo, useRef, useState,
+	memo, useCallback, useMemo,
+	useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import IconAbout from 'shared/assets/icons/icon-about.svg';
-import IconArrow from 'shared/assets/icons/icon-arrow.svg';
 import iconLogo from 'shared/assets/icons/icon-logo.png';
 import IconMain from 'shared/assets/icons/icon-main.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
+import { SidebarCollapseButton } from '../SidebarCollapseButton/SidebarCollapseButton';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -24,23 +25,16 @@ export const Sidebar = memo((props: SidebarProps) => {
 	const { className } = props;
 
 	const { t } = useTranslation();
-	const switcherRef = useRef(null);
 	const [collapsed, setCollapsed] = useState(false);
+	const location = useLocation();
 
 	const itemsList = useMemo(() => [
-		{ to: '/', Icon: IconMain, text: t('Главная'), collapsed },
-		{ to: '/about', Icon: IconAbout, text: t('О сайте'), collapsed },
-	], [collapsed, t]);
+		{ to: '/', Icon: IconMain, text: t('Главная') },
+		{ to: '/about', Icon: IconAbout, text: t('О сайте') },
+	], [t]);
 
 	const onToggle = useCallback(() => {
 		setCollapsed((prev) => !prev);
-
-		switcherRef.current.classList.add('hide');
-
-		setTimeout(() => {
-			switcherRef.current.classList.toggle(cls.collapsed);
-			switcherRef.current.classList.remove('hide');
-		}, 200);
 	}, []);
 
 	return (
@@ -51,18 +45,18 @@ export const Sidebar = memo((props: SidebarProps) => {
 				</div>
 				<div className={cls.items}>
 					{
-						itemsList.map((item) => <SidebarItem key={item.to} {...item} />)
+						itemsList.map((item) => (
+							<SidebarItem
+								key={item.to}
+								collapsed={collapsed}
+								active={location.pathname === item.to}
+								{...item}
+							/>
+						))
 					}
 				</div>
-				<Button
-					className={classNames(cls.toggleBtn, { [cls.collapsed]: collapsed }, [])}
-					onClick={onToggle}
-					data-testid="toggle-btn"
-				>
-					<IconArrow className={cls.arrow} />
-					<IconArrow className={cls.arrowHover} />
-				</Button>
-				<div className={classNames(cls.switchers, {}, [])} ref={switcherRef}>
+				<SidebarCollapseButton collapsed={collapsed} onClick={onToggle} />
+				<div className={classNames(cls.switchers, { [cls.collapsed]: collapsed }, [])}>
 					<ThemeSwitcher />
 					<LanguageSwitcher />
 				</div>

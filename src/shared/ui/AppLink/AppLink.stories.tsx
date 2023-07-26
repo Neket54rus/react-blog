@@ -23,3 +23,14 @@ Light.args = {};
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const ActiveLight = Template.bind({});
+ActiveLight.args = {
+	active: true,
+};
+
+export const ActiveDark = Template.bind({});
+ActiveDark.args = {
+	active: true,
+};
+ActiveDark.decorators = [ThemeDecorator(Theme.DARK)];

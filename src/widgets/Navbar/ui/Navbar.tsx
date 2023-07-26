@@ -9,6 +9,8 @@ interface NavbarProps {
 	className?: string;
 }
 
+// TODO
+
 export const Navbar = memo((props: NavbarProps) => {
 	const { className } = props;
 

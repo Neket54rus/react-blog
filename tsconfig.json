@@ -1,11 +1,12 @@
 {
 	"compilerOptions": {
-		"outDir": "./dist/", // Путь, куда компелируется файлы
+		"strict": true, // Строгий режим
+		"outDir": "./dist/", // Путь, куда компилируется файлы
 		"noImplicitAny": true, // Подсвечивает места, где не указан тип
 		"module": "ESNext", // Использование модульной системы
-		"target": "es5", // Версия ES в каторый будет компелироваться код
-		"jsx": "react-jsx", // Ипользование jsx
-		"allowJs": true, // Позволяет компелятору обробатывать не только ts файлы
+		"target": "es5", // Версия ES в который будет компилироваться код
+		"jsx": "react-jsx", // Использование jsx
+		"allowJs": true, // Позволяет компилятору обрабатывать не только ts файлы
 		"moduleResolution": "node", // Определяет каким способом будут импортироваться файлы
 		"esModuleInterop": true, // Для использования import
 		"allowSyntheticDefaultImports": true, // Для использования import

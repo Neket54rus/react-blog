@@ -1,7 +1,7 @@
-import { MutableRefObject, memo, useEffect, useRef } from 'react';
+import { memo } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 import cls from './SidebarItem.module.scss';
 
@@ -11,6 +11,7 @@ interface SidebarItemProps {
 	Icon?: React.VFC<React.SVGProps<SVGSVGElement>>
 	text: string
 	collapsed?: boolean
+	active?: boolean
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
@@ -20,63 +21,24 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 		Icon,
 		text,
 		collapsed = false,
+		active = false,
 	} = props;
 
-	const textRef = useRef(null) as MutableRefObject<HTMLSpanElement>;
-	const iconRef = useRef(null) as MutableRefObject<HTMLDivElement>;
-	const linkRef = useRef(null) as MutableRefObject<HTMLDivElement>;
-	const firstRenderRef = useRef<boolean>(true);
-
-	useEffect(() => {
-		if (collapsed) {
-			textRef.current.classList.add('hide');
-
-			setTimeout(() => {
-				textRef.current.classList.add(cls.collapsed);
-			}, 200);
-		} else {
-			textRef.current.classList.remove(cls.collapsed);
-
-			setTimeout(() => {
-				textRef.current.classList.remove('hide');
-			}, 200);
-		}
-
-		if (!firstRenderRef.current) {
-			iconRef.current.classList.add('hide');
-
-			setTimeout(() => {
-				iconRef.current.classList.remove('hide');
-			}, 200);
-		}
-	}, [collapsed]);
-
-	useEffect(() => {
-		firstRenderRef.current = false;
-	}, []);
+	const mods: Mods = {
+		[cls.active]: active,
+		[cls.collapsed]: collapsed,
+	};
 
 	return (
 		<AppLink
-			className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed }, [className])}
+			className={classNames(cls.SidebarItem, mods, [className])}
 			to={to}
-			theme={collapsed && AppLinkTheme.CENTER}
+			max
+			active={active}
+			data-testid="sidebarItem"
 		>
-			<div className={cls.content} ref={linkRef}>
-				{Icon && (
-					<div className={cls.iconWrapper} ref={iconRef}>
-						<Icon
-							className={cls.icon}
-						/>
-					</div>
-				)}
-				<span
-					className={cls.text}
-					ref={textRef}
-				>
-					{text}
-				</span>
-
-			</div>
+			{Icon && <Icon className={cls.icon} />}
+			<span className={classNames(cls.text, { [cls.collapsed]: collapsed })}>{text}</span>
 		</AppLink>
 	);
 });

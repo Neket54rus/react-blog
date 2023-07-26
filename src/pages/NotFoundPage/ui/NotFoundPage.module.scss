@@ -1,7 +1,9 @@
 .NotFoundPage {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  font: var(--font-l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 20px;
+    height: 100%;
+    font: var(--font-l);
 }

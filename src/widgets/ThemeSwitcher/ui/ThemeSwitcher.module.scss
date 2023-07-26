@@ -1,21 +1,23 @@
 .ThemeSwitcher {
-  line-height: 0;
+    line-height: 0;
 }
 
 .icon {
-  border-radius: 50%;
-  transition: all 0.2s;
+    border-radius: 50%;
 
-  path {
-    fill: var(--icon-color);
-    transition: all 0.2s;
-  }
-
-  &:hover {
-    box-shadow: 0 3px 10px 0 rgb(16 55 163 / 60%);
+    // transition: all 0.2s;
 
     path {
-      fill: var(--accent-color);
+        fill: var(--icon-color);
+
+        // transition: all 0.2s;
     }
-  }
+
+    &:hover {
+        box-shadow: 0 3px 10px 0 rgb(16 55 163 / 60%);
+
+        path {
+            fill: var(--accent-color);
+        }
+    }
 }

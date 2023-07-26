@@ -6,7 +6,7 @@ import { Theme } from 'shared/lib/useTheme/ThemeContext';
 import { Sidebar } from './Sidebar';
 
 export default {
-	title: 'widgets/Sidebar',
+	title: 'widgets/Sidebar/Sidebar',
 	component: Sidebar,
 	argTypes: {},
 	args: {},

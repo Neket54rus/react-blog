@@ -1,0 +1,49 @@
+.arrowHover {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 3px;
+    z-index: -1;
+    filter: blur(4px);
+
+    // transition: all 0.2s;
+
+    path {
+        fill: rgb(16 55 163 / 60%);
+    }
+}
+
+.SidebarCollapseButton {
+    position: absolute;
+    line-height: 0;
+    right: 12px;
+    top: 50%;
+    transform: translateX(-50%);
+
+    // transition: all 0.4s;
+
+    &.collapsed {
+        right: 50%;
+        rotate: 180deg;
+    }
+
+    &:hover {
+        .arrowHover {
+            opacity: 1;
+        }
+    }
+}
+
+.arrow {
+    path {
+        fill: var(--icon-color);
+
+        // transition: all 0.2s;
+    }
+
+    &:hover {
+        path {
+            fill: var(--accent-color);
+        }
+    }
+}

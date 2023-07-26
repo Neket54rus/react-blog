@@ -1,38 +1,39 @@
 import { ReactNode, memo } from 'react';
-import { Link, LinkProps, useMatch } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './AppLink.module.scss';
 
-export enum AppLinkTheme {
-	CENTER = 'center'
-}
-
 interface AppLinkProps extends LinkProps {
-	className?: string;
-	to: string;
-	children: ReactNode;
-	theme?: AppLinkTheme;
+	className?: string
+	to: string
+	children: ReactNode
+	max?: boolean
+	active?: boolean
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
 	const {
-		className, to, children, theme, ...otherProps
+		className,
+		to,
+		children,
+		max = false,
+		active = false,
+		...otherProps
 	} = props;
 
-	const match = useMatch(to);
-
 	const mods: Mods = {
-		[cls.active]: Boolean(match),
+		[cls.active]: active,
+		[cls.max]: max,
 	};
 
 	return (
 		<Link
-			className={classNames(cls.AppLink, mods, [className, cls[theme]])}
+			className={classNames(cls.AppLink, mods, [className])}
 			to={to}
-			{...otherProps}
 			data-testid="app-link"
+			{...otherProps}
 		>
 			{children}
 		</Link>
