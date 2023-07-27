@@ -10,11 +10,11 @@ export const App = memo(() => {
 	return (
 		<div className={classNames('app', {}, [])}>
 			<Suspense fallback="">
+				<Navbar isAuth={false} />
 				<div className="content-page">
 					<Sidebar />
 					<AppRouter />
 				</div>
-				<Navbar />
 			</Suspense>
 		</div>
 	);

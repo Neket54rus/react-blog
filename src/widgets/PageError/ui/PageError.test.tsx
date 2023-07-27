@@ -1,7 +1,8 @@
 import { screen } from '@testing-library/react';
+
 import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
 
-import { PageError } from 'widgets/PageError';
+import { PageError } from './PageError';
 
 describe('PageError', () => {
 	test('Рендер компонента PageError', () => {

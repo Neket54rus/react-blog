@@ -1,7 +1,8 @@
 import { screen } from '@testing-library/react';
 
 import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
+
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 describe('LanguageSwitcher', () => {
 	test('Рендер компонента LanguageSwitcher', () => {

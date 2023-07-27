@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { PageLoader } from 'widgets/PageLoader';
+import { PageLoader } from './PageLoader';
 
 describe('PageLoader', () => {
 	test('Рендер компонента PageLoader', () => {

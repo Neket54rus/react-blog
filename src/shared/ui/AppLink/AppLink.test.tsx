@@ -1,7 +1,8 @@
 import { screen } from '@testing-library/react';
 
 import { renderWithRouter } from 'shared/lib/tests/renderWithRouter/renderWithRouter';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+
+import { AppLink } from './AppLink';
 
 describe('AppLink', () => {
 	test('Рендер компонента AppLink', () => {

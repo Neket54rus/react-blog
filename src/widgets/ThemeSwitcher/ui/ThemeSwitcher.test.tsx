@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 describe('ThemeSwitcher', () => {
 	test('Рендер компонента ThemeSwitcher', () => {
