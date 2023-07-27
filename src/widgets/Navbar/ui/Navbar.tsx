@@ -1,12 +1,12 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { LoginModal } from 'features/AuthByUsername';
 import IconEdit from 'shared/assets/icons/icon-edit.svg';
 import IconNotification from 'shared/assets/icons/icon-notification.svg';
 import iconProfileLogo from 'shared/assets/icons/icon-profile-logo.png';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { Portal } from 'shared/ui/Portal/Portal';
 
 import cls from './Navbar.module.scss';
@@ -15,8 +15,6 @@ interface NavbarProps {
 	className?: string;
 	isAuth?: boolean
 }
-
-// TODO
 
 export const Navbar = memo((props: NavbarProps) => {
 	const {
@@ -40,8 +38,7 @@ export const Navbar = memo((props: NavbarProps) => {
 				</>
 			) : <Button onClick={onOpenModal} theme={ButtonTheme.OUTLINE}>{t('Войти')}</Button>}
 			<Portal>
-				{/* eslint-disable-next-line i18next/no-literal-string */}
-				<Modal isOpen={isAuthModal} onClose={onCloseModal}>Hello</Modal>
+				<LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
 			</Portal>
 		</div>
 	);

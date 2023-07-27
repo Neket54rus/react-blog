@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode, memo, useCallback, useEffect } from 'react';
+import { MouseEvent, ReactNode, memo, useCallback, useEffect, useState } from 'react';
 
 import { Mods, classNames } from 'shared/lib/classNames/classNames';
 
@@ -9,6 +9,7 @@ interface ModalProps {
 	children: ReactNode
 	isOpen?: boolean
 	onClose?: () => void
+	lazy?: boolean
 }
 
 export const Modal = memo((props: ModalProps) => {
@@ -17,7 +18,10 @@ export const Modal = memo((props: ModalProps) => {
 		children,
 		isOpen = false,
 		onClose,
+		lazy,
 	} = props;
+
+	const [isMounted, setMounted] = useState(false);
 
 	const closeHandler = useCallback(() => {
 		if (onClose) onClose();
@@ -32,6 +36,12 @@ export const Modal = memo((props: ModalProps) => {
 	}, [closeHandler]);
 
 	useEffect(() => {
+		if (isOpen) {
+			setMounted(true);
+		}
+	}, [isOpen]);
+
+	useEffect(() => {
 		if (isOpen) window.addEventListener('keydown', onKeyDown);
 
 		return () => window.removeEventListener('keydown', onKeyDown);
@@ -40,6 +50,10 @@ export const Modal = memo((props: ModalProps) => {
 	const mods: Mods = {
 		[cls.opened]: isOpen,
 	};
+
+	if (lazy && !isMounted) {
+		return null;
+	}
 
 	return (
 		<div className={classNames(cls.Modal, mods, [className])}>

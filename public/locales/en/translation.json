@@ -5,5 +5,7 @@
 	"Загрузка": "Loading",
 	"Произошла непредвиденная ошибка": "An unexpected error has occurred",
 	"Обновить страницу": "Refresh the page",
-	"Войти": "Sign in"
+	"Войти": "Sign in",
+	"Введите имя": "Enter your name",
+	"Введите пароль": "Enter password"
 }

@@ -18,10 +18,15 @@
     border: 1px solid var(--icon-color);
     border-radius: 16px;
     background: none;
-
-    // transition: box-shadow 0.2s;
+    transition: all 0.2s;
 
     &:hover {
         box-shadow: 0 3px 10px 0 rgb(16 55 163 / 60%);
+    }
+
+    &:disabled {
+        color: var(--hint-color);
+        box-shadow: none;
+        cursor: auto;
     }
 }

@@ -16,7 +16,7 @@ export const StoreProvider = memo((props: StoreProviderProps) => {
 		initialState,
 	} = props;
 
-	const store = createReduxStore(initialState);
+	const store = createReduxStore(initialState as StateSchema);
 
 	return (
 		<Provider store={store}>
