@@ -5,6 +5,10 @@ module.exports = {
 	parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 'latest', sourceType: 'module' },
 	plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
 	rules: {
+		'import/order': ['error', {
+			groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+			'newlines-between': 'always-and-inside-groups',
+		}],
 		indent: ['error', 'tab'],
 		'linebreak-style': 'off',
 		'no-tabs': 'off',

@@ -12,9 +12,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
+import { SidebarCollapseButton } from '../SidebarCollapseButton/SidebarCollapseButton';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
-import { SidebarCollapseButton } from '../SidebarCollapseButton/SidebarCollapseButton';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

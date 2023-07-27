@@ -6,41 +6,41 @@
 
 .app,
 body {
-	font: var(--font-m);
-	color: var(--text-color);
-	background: var(--bg-color);
-	min-height: 100vh;
+    font: var(--font-m);
+    color: var(--text-color);
+    background: var(--bg-color);
+    min-height: 100vh;
 }
 
 a {
-	font: var(--font-m);
-	color: var(--text-color);
-	text-decoration: none;
+    font: var(--font-m);
+    color: var(--text-color);
+    text-decoration: none;
 }
 
 .content-page {
-	display: flex;
+    display: flex;
 }
 
 .page-wrapper {
-	flex-grow: 1;
+    flex-grow: 1;
 }
 
 *::-webkit-scrollbar {
-	width: 10px;
-	height: 22px;
+    width: 10px;
+    height: 22px;
 }
 
 *::-webkit-scrollbar-track {
-	background: var(--bg-light-color);
+    background: var(--bg-light-color);
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: var(--icon-color);
-	border-radius: 38px;
-	border: none;
+    background-color: var(--icon-color);
+    border-radius: 38px;
+    border: none;
 }
 
 .hide {
-	opacity: 0;
+    opacity: 0;
 }

@@ -32,4 +32,7 @@ export default {
 		'\\.(svg)': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		'\\.(png)': path.resolve(__dirname, 'fileTransformer.js'),
 	},
+	globals: {
+		__IS_DEV__: true,
+	},
 };
