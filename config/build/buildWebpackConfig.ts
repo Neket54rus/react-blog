@@ -1,10 +1,10 @@
 import webpack from 'webpack';
 
-import { BuildOptions } from './types/config';
-import { buildPlugins } from './buildPlugins';
-import { buildLoaders } from './buildLoaders';
-import { buildResolvers } from './buildResolvers';
 import { buildDevServer } from './buildDevServer';
+import { buildLoaders } from './buildLoaders';
+import { buildPlugins } from './buildPlugins';
+import { buildResolvers } from './buildResolvers';
+import { BuildOptions } from './types/config';
 
 // Полная конфигурация webpack
 export function buildWebpackConfig(option: BuildOptions): webpack.Configuration {
@@ -20,8 +20,8 @@ export function buildWebpackConfig(option: BuildOptions): webpack.Configuration 
 		module: {
 			rules: buildLoaders(option), // Обработка лоудеров. Лоудер - файл, который выходит за рамки JS
 		},
-		resolve: buildResolvers(option), // Расшерения
-		devtool: option.isDev ? 'inline-source-map' : undefined, // Помогает отслеживать ошибки в большом колличестве файлов
+		resolve: buildResolvers(option), // Расширения
+		devtool: option.isDev ? 'inline-source-map' : undefined, // Помогает отслеживать ошибки в большом количестве файлов
 		devServer: option.isDev ? buildDevServer(option) : undefined, // Работа с серверов в режиме разработки
 	};
 }

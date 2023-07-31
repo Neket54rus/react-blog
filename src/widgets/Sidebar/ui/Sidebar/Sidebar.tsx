@@ -5,12 +5,12 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-import IconAbout from 'shared/assets/icons/icon-about.svg';
-import iconLogo from 'shared/assets/icons/icon-logo.png';
-import IconMain from 'shared/assets/icons/icon-main.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import IconAbout from '@/shared/assets/icons/icon-about.svg';
+import iconLogo from '@/shared/assets/icons/icon-logo.png';
+import IconMain from '@/shared/assets/icons/icon-main.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { SidebarCollapseButton } from '../SidebarCollapseButton/SidebarCollapseButton';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

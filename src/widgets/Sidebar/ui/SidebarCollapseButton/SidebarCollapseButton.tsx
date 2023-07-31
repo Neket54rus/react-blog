@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import IconArrow from 'shared/assets/icons/icon-arrow.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
+import IconArrow from '@/shared/assets/icons/icon-arrow.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
 
 import cls from './SidebarCollapseButton.module.scss';
 

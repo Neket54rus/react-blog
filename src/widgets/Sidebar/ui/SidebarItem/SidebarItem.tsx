@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Mods, classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Mods, classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 
 import cls from './SidebarItem.module.scss';
 

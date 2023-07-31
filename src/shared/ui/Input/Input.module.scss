@@ -14,6 +14,10 @@
         box-shadow: 0 3px 10px 0 rgb(16 55 163 / 60%);
     }
 
+    &:disabled {
+        color: var(--hint-color);
+    }
+
     &::placeholder {
         color: var(--hint-color);
     }

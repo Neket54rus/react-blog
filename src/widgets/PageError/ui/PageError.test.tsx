@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { renderWithTranslation } from '@/shared/lib/tests/renderWithTranslation/renderWithTranslation';
 
 import { PageError } from './PageError';
 

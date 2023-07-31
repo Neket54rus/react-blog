@@ -31,6 +31,7 @@ export default {
 		'\\.(s?css)$': 'identity-obj-proxy',
 		'\\.(svg)': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 		'\\.(png)': path.resolve(__dirname, 'fileTransformer.js'),
+		'^@/(.*)$': '<rootDir>/src/$1',
 	},
 	globals: {
 		__IS_DEV__: true,

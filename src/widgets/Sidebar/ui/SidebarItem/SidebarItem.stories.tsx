@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import HomeIcon from 'shared/assets/icons/icon-main.svg';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'shared/lib/useTheme/ThemeContext';
+import HomeIcon from '@/shared/assets/icons/icon-main.svg';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/lib/useTheme/ThemeContext';
 
 import { SidebarItem } from './SidebarItem';
 

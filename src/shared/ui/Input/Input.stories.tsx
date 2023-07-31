@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'shared/lib/useTheme/ThemeContext';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/shared/lib/useTheme/ThemeContext';
 
 import { Input } from './Input';
 
@@ -22,3 +22,16 @@ Light.args = {};
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightDisabled = Template.bind({});
+LightDisabled.args = {
+	value: 'Text',
+	disabled: true,
+};
+
+export const DarkDisabled = Template.bind({});
+DarkDisabled.args = {
+	value: 'Text',
+	disabled: true,
+};
+DarkDisabled.decorators = [ThemeDecorator(Theme.DARK)];
