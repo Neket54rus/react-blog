@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { Loader } from '@/shared/ui/Loader/Loader';
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Portal } from '@/shared/ui/Portal/Portal';
 
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
     className?: string;
@@ -17,12 +17,10 @@ export const LoginModal = memo((props: LoginModalProps) => {
 
     return (
         <Portal>
-            <Modal
-                className={classNames('', {}, [className])}
-                isOpen={isOpen}
-                onClose={onClose}
-            >
-                <LoginForm isOpen={isOpen} />
+            <Modal className={className} isOpen={isOpen} onClose={onClose}>
+                <Suspense fallback={<Loader />}>
+                    <LoginFormAsync isOpen={isOpen} />
+                </Suspense>
             </Modal>
         </Portal>
     );

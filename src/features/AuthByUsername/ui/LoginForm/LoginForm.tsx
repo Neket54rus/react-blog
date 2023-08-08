@@ -3,6 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextSize, TextTheme } from '@/shared/ui/Text/Text';
@@ -12,16 +16,20 @@ import { selectLoginLoading } from '../../model/selectors/selectLoginLoading/sel
 import { selectLoginPassword } from '../../model/selectors/selectLoginPassword/selectLoginPassword';
 import { selectLoginUsername } from '../../model/selectors/selectLoginUsername/selectLoginUsername';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
     isOpen?: boolean;
 }
 
-export const LoginForm = memo((props: LoginFormProps) => {
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
+
+const LoginForm = memo((props: LoginFormProps) => {
     const { className, isOpen } = props;
 
     const { t } = useTranslation();
@@ -50,40 +58,44 @@ export const LoginForm = memo((props: LoginFormProps) => {
     }, [dispatch, password, username]);
 
     return (
-        <div
-            className={classNames(cls.LoginForm, {}, [className])}
-            data-testid='LoginForm'
-        >
-            <Text className={cls.title} size={TextSize.M} center>
-                {t('Форма авторизации')}
-            </Text>
-            {error && (
-                <Text className={cls.error} theme={TextTheme.ERROR} center>
-                    {t('Произошла ошибка при входе')}
-                </Text>
-            )}
-            <Input
-                placeholder={t('Введите имя')}
-                value={username}
-                onChange={changeUsername}
-                autofocus={isOpen}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder={t('Введите пароль')}
-                type='password'
-                value={password}
-                onChange={changePassword}
-                disabled={isLoading}
-            />
-            <Button
-                className={cls.btn}
-                theme={ButtonTheme.OUTLINE}
-                disabled={(username && password) === '' || isLoading}
-                onClick={submit}
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+            <div
+                className={classNames(cls.LoginForm, {}, [className])}
+                data-testid='LoginForm'
             >
-                {t('Войти')}
-            </Button>
-        </div>
+                <Text className={cls.title} size={TextSize.M} center>
+                    {t('Форма авторизации')}
+                </Text>
+                {error && (
+                    <Text className={cls.error} theme={TextTheme.ERROR} center>
+                        {t('Произошла ошибка при входе')}
+                    </Text>
+                )}
+                <Input
+                    placeholder={t('Введите имя')}
+                    value={username}
+                    onChange={changeUsername}
+                    autofocus={isOpen}
+                    disabled={isLoading}
+                />
+                <Input
+                    placeholder={t('Введите пароль')}
+                    type='password'
+                    value={password}
+                    onChange={changePassword}
+                    disabled={isLoading}
+                />
+                <Button
+                    className={cls.btn}
+                    theme={ButtonTheme.OUTLINE}
+                    disabled={(username && password) === '' || isLoading}
+                    onClick={submit}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
     );
 });
+
+export default LoginForm;
