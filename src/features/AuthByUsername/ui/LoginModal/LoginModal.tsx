@@ -17,7 +17,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
 
     return (
         <Portal>
-            <Modal className={className} isOpen={isOpen} onClose={onClose}>
+            <Modal className={className} isOpen={isOpen} onClose={onClose} lazy>
                 <Suspense fallback={<Loader />}>
                     <LoginFormAsync isOpen={isOpen} />
                 </Suspense>

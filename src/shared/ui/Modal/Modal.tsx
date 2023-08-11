@@ -1,11 +1,4 @@
-import {
-    MouseEvent,
-    ReactNode,
-    memo,
-    useCallback,
-    useEffect,
-    useState,
-} from 'react';
+import { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { Mods, classNames } from '@/shared/lib/classNames/classNames';
 
@@ -19,7 +12,7 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-export const Modal = memo((props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const { className, children, isOpen = false, onClose, lazy } = props;
 
     const [isMounted, setMounted] = useState(false);
@@ -76,4 +69,4 @@ export const Modal = memo((props: ModalProps) => {
             </div>
         </div>
     );
-});
+};

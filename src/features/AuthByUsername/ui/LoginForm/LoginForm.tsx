@@ -67,7 +67,12 @@ const LoginForm = memo((props: LoginFormProps) => {
                     {t('Форма авторизации')}
                 </Text>
                 {error && (
-                    <Text className={cls.error} theme={TextTheme.ERROR} center>
+                    <Text
+                        className={cls.error}
+                        theme={TextTheme.ERROR}
+                        center
+                        data-testid='error-text'
+                    >
                         {t('Произошла ошибка при входе')}
                     </Text>
                 )}
@@ -77,6 +82,7 @@ const LoginForm = memo((props: LoginFormProps) => {
                     onChange={changeUsername}
                     autofocus={isOpen}
                     disabled={isLoading}
+                    data-testid='input-name'
                 />
                 <Input
                     placeholder={t('Введите пароль')}
@@ -84,12 +90,14 @@ const LoginForm = memo((props: LoginFormProps) => {
                     value={password}
                     onChange={changePassword}
                     disabled={isLoading}
+                    data-testid='input-password'
                 />
                 <Button
                     className={cls.btn}
                     theme={ButtonTheme.OUTLINE}
                     disabled={(username && password) === '' || isLoading}
                     onClick={submit}
+                    data-testid='submit-btn'
                 >
                     {t('Войти')}
                 </Button>

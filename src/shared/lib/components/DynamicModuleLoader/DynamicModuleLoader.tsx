@@ -1,5 +1,5 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { ReactNode, memo, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 import {
@@ -17,7 +17,7 @@ interface DynamicModuleLoaderProps {
     removeAfterUnmount?: boolean;
 }
 
-export const DynamicModuleLoader = memo((props: DynamicModuleLoaderProps) => {
+export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
     const { children, reducers, removeAfterUnmount } = props;
 
     const dispatch = useDispatch();
@@ -43,4 +43,4 @@ export const DynamicModuleLoader = memo((props: DynamicModuleLoaderProps) => {
 
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{children}</>;
-});
+};
