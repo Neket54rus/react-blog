@@ -1,0 +1,14 @@
+.ProfilePage {
+    background: var(--bg-dark-color);
+    padding: 24px;
+    border-radius: 32px;
+    width: 780px;
+    margin: 80px auto 32px;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}

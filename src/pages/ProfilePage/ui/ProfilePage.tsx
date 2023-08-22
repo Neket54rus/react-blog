@@ -1,33 +1,61 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { profileReducer } from '@/entities/Profile';
+import {
+  ProfileCard,
+  fetchProfileData,
+  profileReducer,
+  selectProfileData,
+  selectProfileError,
+  selectProfileLoading,
+  selectProfileReadonly,
+} from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    DynamicModuleLoader,
-    ReducersList,
+  DynamicModuleLoader,
+  ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageError } from '@/widgets/PageError';
+
+import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {
-    profile: profileReducer,
+  profile: profileReducer,
 };
 
 interface ProfilePageProps {
-    className?: string;
+  className?: string;
 }
 
 const ProfilePage = memo((props: ProfilePageProps) => {
-    const { className } = props;
+  const { className } = props;
 
-    const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const data = useSelector(selectProfileData);
+  const isLoading = useSelector(selectProfileLoading);
+  const error = useSelector(selectProfileError);
+  const readonly = useSelector(selectProfileReadonly);
 
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
+
+  if (error) {
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
-                {t('Profile page')}
-            </div>
-        </DynamicModuleLoader>
+      <div className={classNames(cls.ProfilePage, {}, [className, cls.error])}>
+        <PageError />
+      </div>
     );
+  }
+
+  return (
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div className={classNames(cls.ProfilePage, {}, [className])}>
+        <ProfileCard data={data} isLoading={isLoading} readonly={readonly} />
+      </div>
+    </DynamicModuleLoader>
+  );
 });
 
 export default ProfilePage;

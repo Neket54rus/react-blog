@@ -26,6 +26,7 @@ interface TextProps {
     theme?: TextTheme;
     center?: boolean;
     'data-testid'?: string;
+    noWrap?: boolean;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -37,6 +38,7 @@ export const Text = memo((props: TextProps) => {
         theme,
         center = false,
         'data-testid': dataTestId = 'text',
+        noWrap = false,
     } = props;
 
     const mods: Mods = {
@@ -44,6 +46,7 @@ export const Text = memo((props: TextProps) => {
         [cls[size!]]: Boolean(size),
         [cls[theme!]]: Boolean(theme),
         [cls.center]: center,
+        [cls.noWrap]: noWrap,
     };
 
     return (

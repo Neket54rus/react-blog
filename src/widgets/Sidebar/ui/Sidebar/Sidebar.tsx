@@ -15,71 +15,68 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
 const itemsList = [
-    { to: '/', Icon: IconMain, text: 'Главная' },
-    { to: '/about', Icon: IconAbout, text: 'О сайте' },
-    { to: '/profile', Icon: IconProfile, text: 'Профиль' },
+  { to: '/', Icon: IconMain, text: 'Главная' },
+  { to: '/about', Icon: IconAbout, text: 'О сайте' },
+  { to: '/profile', Icon: IconProfile, text: 'Профиль' },
 ];
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export const Sidebar = memo((props: SidebarProps) => {
-    const { className } = props;
+  const { className } = props;
 
-    const [collapsed, setCollapsed] = useState(false);
-    const location = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
 
-    const onToggle = useCallback(() => {
-        setCollapsed((prev) => !prev);
-    }, []);
+  const onToggle = useCallback(() => {
+    setCollapsed((prev) => !prev);
+  }, []);
 
-    return (
+  return (
+    <div
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+      data-testid='sidebar'
+    >
+      <div className={cls.content}>
         <div
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-            data-testid='sidebar'
+          className={classNames(cls.logoWrapper, {
+            [cls.collapsed]: collapsed,
+          })}
         >
-            <div className={cls.content}>
-                <div
-                    className={classNames(cls.logoWrapper, {
-                        [cls.collapsed]: collapsed,
-                    })}
-                >
-                    <img
-                        className={classNames(cls.logo, {
-                            [cls.collapsed]: collapsed,
-                        })}
-                        src={iconLogo}
-                        alt='logo'
-                    />
-                </div>
-                <div className={cls.items}>
-                    {itemsList.map((item) => (
-                        <SidebarItem
-                            key={item.to}
-                            collapsed={collapsed}
-                            active={location.pathname === item.to}
-                            {...item}
-                        />
-                    ))}
-                </div>
-                <SidebarCollapseButton
-                    collapsed={collapsed}
-                    onClick={onToggle}
-                />
-                <div
-                    className={classNames(
-                        cls.switchers,
-                        { [cls.collapsed]: collapsed },
-                        [],
-                    )}
-                >
-                    <ThemeSwitcher />
-                    <LanguageSwitcher />
-                </div>
-            </div>
+          <img
+            className={classNames(cls.logo, {
+              [cls.collapsed]: collapsed,
+            })}
+            src={iconLogo}
+            alt='logo'
+          />
         </div>
-    );
+        <div className={cls.items}>
+          {itemsList.map((item) => (
+            <SidebarItem
+              key={item.to}
+              collapsed={collapsed}
+              active={location.pathname === item.to}
+              {...item}
+            />
+          ))}
+        </div>
+        <SidebarCollapseButton collapsed={collapsed} onClick={onToggle} />
+        <div
+          className={classNames(
+            cls.switchers,
+            { [cls.collapsed]: collapsed },
+            [],
+          )}
+        >
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+        </div>
+      </div>
+    </div>
+  );
 });

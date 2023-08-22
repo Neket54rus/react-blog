@@ -1,13 +1,13 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { selectUserAuthData, userActions } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import IconEdit from '@/shared/assets/icons/icon-edit.svg';
 import IconNotification from '@/shared/assets/icons/icon-notification.svg';
-import iconProfileLogo from '@/shared/assets/icons/icon-profile-logo.png';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 import cls from './Navbar.module.scss';
@@ -20,7 +20,7 @@ export const Navbar = memo((props: NavbarProps) => {
     const { className } = props;
 
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isAuth = useSelector(selectUserAuthData);
     const [isAuthModal, setAuthModal] = useState(false);
 
@@ -54,7 +54,7 @@ export const Navbar = memo((props: NavbarProps) => {
             <IconNotification />
             <img
                 className={cls.logoImg}
-                src={iconProfileLogo}
+                src={isAuth.avatar}
                 alt='profile logo'
             />
             <Button theme={ButtonTheme.OUTLINE} onClick={onLogout}>

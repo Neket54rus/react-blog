@@ -12,6 +12,7 @@ export interface BuildPath {
 export interface BuildEnv {
 	mode: BuildMode
 	port: number
+	apiUrl: string
 }
 
 // Интерфейс для опций сборки Webpack
@@ -20,4 +21,5 @@ export interface BuildOptions {
 	paths: BuildPath
 	isDev: boolean
 	port: number
+	apiUrl: string
 }

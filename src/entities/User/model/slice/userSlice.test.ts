@@ -9,9 +9,13 @@ describe('entities/User/userSlice', () => {
         expect(
             userReducer(
                 state,
-                userActions.setAuthData({ id: '1', username: 'Nikita' }),
+                userActions.setAuthData({
+                    id: '1',
+                    username: 'Nikita',
+                    avatar: '',
+                }),
             ),
-        ).toEqual({ authData: { id: '1', username: 'Nikita' } });
+        ).toEqual({ authData: { id: '1', username: 'Nikita', avatar: '' } });
     });
 
     test('Выход из аккаунта', () => {
@@ -19,6 +23,7 @@ describe('entities/User/userSlice', () => {
             authData: {
                 id: '1',
                 username: 'Nikita',
+                avatar: '',
             },
         };
         expect(userReducer(state, userActions.logout())).toEqual({

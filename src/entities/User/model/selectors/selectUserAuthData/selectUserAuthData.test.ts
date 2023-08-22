@@ -10,11 +10,12 @@ describe('entities/User/selectUserAuthData', () => {
                 authData: {
                     id: '1',
                     username: 'Nikita',
+                    avatar: '',
                 },
             },
         };
         const authData = selectUserAuthData(state as StateSchema);
-        expect(authData).toEqual({ id: '1', username: 'Nikita' });
+        expect(authData).toEqual({ id: '1', username: 'Nikita', avatar: '' });
     });
 
     test('Проверка на пустой state', () => {

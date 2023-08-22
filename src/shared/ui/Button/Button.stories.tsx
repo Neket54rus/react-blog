@@ -6,60 +6,84 @@ import { Theme } from '@/shared/lib/useTheme/ThemeContext';
 import { Button, ButtonTheme } from './Button';
 
 export default {
-	title: 'shared/Button',
-	component: Button,
-	argTypes: {},
-	args: {
-		children: 'button',
-	},
+  title: 'shared/Button',
+  component: Button,
+  argTypes: {},
+  args: {
+    children: 'button',
+  },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const ClearLight = Template.bind({});
 ClearLight.args = {
-	theme: ButtonTheme.CLEAR,
+  theme: ButtonTheme.CLEAR,
 };
 
 export const ClearDark = Template.bind({});
 ClearDark.args = {
-	theme: ButtonTheme.CLEAR,
+  theme: ButtonTheme.CLEAR,
 };
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OutlineLight = Template.bind({});
 OutlineLight.args = {
-	theme: ButtonTheme.OUTLINE,
+  theme: ButtonTheme.OUTLINE,
 };
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
-	theme: ButtonTheme.OUTLINE,
+  theme: ButtonTheme.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const OutlineRedLight = Template.bind({});
+OutlineRedLight.args = {
+  theme: ButtonTheme.OUTLINE_RED,
+};
+
+export const OutlineRedDark = Template.bind({});
+OutlineRedDark.args = {
+  theme: ButtonTheme.OUTLINE_RED,
+};
+OutlineRedDark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const ClearLightDisabled = Template.bind({});
 ClearLightDisabled.args = {
-	theme: ButtonTheme.CLEAR,
-	disabled: true,
+  theme: ButtonTheme.CLEAR,
+  disabled: true,
 };
 
 export const ClearDarkDisabled = Template.bind({});
 ClearDarkDisabled.args = {
-	theme: ButtonTheme.CLEAR,
-	disabled: true,
+  theme: ButtonTheme.CLEAR,
+  disabled: true,
 };
 ClearDarkDisabled.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const OutlineLightDisabled = Template.bind({});
 OutlineLightDisabled.args = {
-	theme: ButtonTheme.OUTLINE,
-	disabled: true,
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
 };
 
 export const OutlineDarkDisabled = Template.bind({});
 OutlineDarkDisabled.args = {
-	theme: ButtonTheme.OUTLINE,
-	disabled: true,
+  theme: ButtonTheme.OUTLINE,
+  disabled: true,
 };
 OutlineDarkDisabled.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OutlineLightRedDisabled = Template.bind({});
+OutlineLightRedDisabled.args = {
+  theme: ButtonTheme.OUTLINE_RED,
+  disabled: true,
+};
+
+export const OutlineDarkRedDisabled = Template.bind({});
+OutlineDarkRedDisabled.args = {
+  theme: ButtonTheme.OUTLINE_RED,
+  disabled: true,
+};
+OutlineDarkRedDisabled.decorators = [ThemeDecorator(Theme.DARK)];

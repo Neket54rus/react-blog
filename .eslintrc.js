@@ -19,6 +19,10 @@ module.exports = {
         'react-hooks',
         'neket54-plugin',
     ],
+    globals: {
+        __IS_DEV__: true,
+        __API__: true,
+    },
     rules: {
         // 'import/order': ['error', {
         // 	groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],

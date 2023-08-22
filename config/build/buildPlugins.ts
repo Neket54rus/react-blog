@@ -23,6 +23,7 @@ export function buildPlugins(option: BuildOptions): webpack.WebpackPluginInstanc
 		// Нужен для использования глобальных переменных в приложении
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(option.isDev),
+			__API__: JSON.stringify(option.apiUrl),
 		}),
 	];
 

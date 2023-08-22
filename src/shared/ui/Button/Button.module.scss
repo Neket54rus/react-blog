@@ -20,16 +20,28 @@
     outline: none;
 }
 
-.outline {
+.outline,
+.outline-red {
     font-weight: 400;
     margin: 0;
     padding: 8px 16px;
-    border: 1px solid var(--icon-color);
     border-radius: 16px;
     background: none;
     transition: all 0.2s;
+}
+
+.outline {
+    border: 1px solid var(--icon-color);
 
     &:hover {
         box-shadow: 0 3px 10px 0 rgb(16 55 163 / 60%);
+    }
+}
+
+.outline-red {
+    border: 1px solid var(--cancel-color);
+
+    &:hover {
+        box-shadow: 0 3px 10px 0 rgb(163 16 21 / 60%);
     }
 }
