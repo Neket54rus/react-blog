@@ -17,7 +17,7 @@ import cls from './Sidebar.module.scss';
 const itemsList = [
   { to: '/', Icon: IconMain, text: 'Главная' },
   { to: '/about', Icon: IconAbout, text: 'О сайте' },
-  { to: '/profile', Icon: IconProfile, text: 'Профиль' },
+  { to: '/profile', Icon: IconProfile, text: 'Профиль', authOnly: true },
 ];
 
 interface SidebarProps {
@@ -61,6 +61,7 @@ export const Sidebar = memo((props: SidebarProps) => {
               key={item.to}
               collapsed={collapsed}
               active={location.pathname === item.to}
+              authOnly={item.authOnly}
               {...item}
             />
           ))}

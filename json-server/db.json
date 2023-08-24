@@ -1,39 +1,39 @@
 {
-    "posts": [
-        {
-            "id": "1",
-            "title": "json-server",
-            "userId": "1"
-        },
-        {
-            "id": "2",
-            "title": "json-server",
-            "userId": "2"
-        }
-    ],
-    "comments": [
-        {
-            "id": "1",
-            "body": "some comment",
-            "postId": "1"
-        }
-    ],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123",
-            "avatar": "https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg"
-        }
-    ],
-    "profile": {
-        "name": "Никита",
-        "lastname": "Евдокимов",
-        "age": 21,
-        "currency": "RUB",
-        "country": "Russia",
-        "city": "Moscow",
-        "username": "admin",
-        "avatar": "https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg"
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": "2"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg"
+    }
+  ],
+  "profile": {
+    "name": "Шурик",
+    "username": "admin",
+    "lastname": "Nikita",
+    "age": 21,
+    "city": "Moscow",
+    "avatar": "https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg",
+    "currency": "USD",
+    "country": "Armenia"
+  }
 }

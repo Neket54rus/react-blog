@@ -1,4 +1,5 @@
-import { Country, Currency } from '@/shared/const/common';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { Profile, ProfileSchema } from '../types/profile';
@@ -30,8 +31,11 @@ describe('entities/Profile/profileSlice', () => {
     ).toEqual({
       isLoading: false,
       data: profile,
+      form: profile,
       error: '',
       readonly: true,
     });
   });
+
+  // TODO: test profileActions.setReadonly(); test profileActions.updateProfile(); test profileActions.cancelEdit()
 });

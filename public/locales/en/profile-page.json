@@ -1,3 +1,19 @@
 {
-    "Имя": "Name"
+  "Редактировать  профиль": "Edit profile",
+  "Сохранить": "Save",
+  "Отмена": "Cancel",
+  "Имя": "Name",
+  "Введите имя": "Enter your name",
+  "Имя пользователя": "Username",
+  "Введите имя пользователя": "Enter username",
+  "Фамилия": "Surname",
+  "Введите фамилию": "Enter last name",
+  "Ссылка на аватар": "Link to avatar",
+  "Введите ссылку на аватар": "Enter link to avatar",
+  "Возраст": "Age",
+  "Введите возраст": "Enter age",
+  "Город": "City",
+  "Введите город": "Enter city",
+  "Валюта": "Currency",
+  "Страна": "Country"
 }

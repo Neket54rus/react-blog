@@ -1,7 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Country, Currency } from '@/shared/const/common';
 import { Theme } from '@/shared/lib/useTheme/ThemeContext';
 
 import { Profile } from '../../model/types/profile';
@@ -12,6 +14,11 @@ export default {
   component: ProfileCard,
   argTypes: {},
   args: {},
+  decorators: [
+    StoreDecorator({
+      user: { authData: { id: '1', username: 'admin', avatar: '' } },
+    }),
+  ],
 } as ComponentMeta<typeof ProfileCard>;
 
 const Template: ComponentStory<typeof ProfileCard> = (args) => (
@@ -52,6 +59,7 @@ DarkReadonly.args = {
   readonly: true,
   data: profile,
 };
+DarkReadonly.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const LightEditable = Template.bind({});
 LightEditable.args = {
@@ -64,3 +72,4 @@ DarkEditable.args = {
   readonly: false,
   data: profile,
 };
+DarkEditable.decorators = [ThemeDecorator(Theme.DARK)];

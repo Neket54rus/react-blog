@@ -1,0 +1,13 @@
+.Avatar {
+    border-radius: 50%;
+}
+
+.icon {
+    path {
+        fill: none;
+
+        &:last-child {
+            fill: var(--icon-color);
+        }
+    }
+}
