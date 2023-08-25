@@ -33,6 +33,7 @@ export function buildLoaders(option: BuildOptions): webpack.RuleSetRule[] {
 			loader: 'babel-loader',
 			options: {
 				presets: ['@babel/preset-env'],
+				plugins: [option.isDev && require.resolve('react-refresh/babel')].filter(Boolean)
 			},
 		},
 	};
