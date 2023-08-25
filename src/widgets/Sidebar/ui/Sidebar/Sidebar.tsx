@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import IconAbout from '@/shared/assets/icons/icon-about.svg';
+import IconArticles from '@/shared/assets/icons/icon-articles.svg';
 import iconLogo from '@/shared/assets/icons/icon-logo.png';
 import IconMain from '@/shared/assets/icons/icon-main.svg';
 import IconProfile from '@/shared/assets/icons/icon-profile.svg';
@@ -18,6 +19,7 @@ const itemsList = [
   { to: '/', Icon: IconMain, text: 'Главная' },
   { to: '/about', Icon: IconAbout, text: 'О сайте' },
   { to: '/profile', Icon: IconProfile, text: 'Профиль', authOnly: true },
+  { to: '/articles', Icon: IconArticles, text: 'Статьи', authOnly: true },
 ];
 
 interface SidebarProps {
@@ -35,12 +37,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   }, []);
 
   return (
-    <div
-      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-        className,
-      ])}
-      data-testid='sidebar'
-    >
+    <div className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])} data-testid='sidebar'>
       <div className={cls.content}>
         <div
           className={classNames(cls.logoWrapper, {
@@ -67,13 +64,7 @@ export const Sidebar = memo((props: SidebarProps) => {
           ))}
         </div>
         <SidebarCollapseButton collapsed={collapsed} onClick={onToggle} />
-        <div
-          className={classNames(
-            cls.switchers,
-            { [cls.collapsed]: collapsed },
-            [],
-          )}
-        >
+        <div className={classNames(cls.switchers, { [cls.collapsed]: collapsed }, [])}>
           <ThemeSwitcher />
           <LanguageSwitcher />
         </div>

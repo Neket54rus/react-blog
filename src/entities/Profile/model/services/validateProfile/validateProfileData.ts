@@ -23,3 +23,5 @@ export const validateProfile = (profile?: Profile) => {
 
   return errors;
 };
+
+// TODO: сделать нормальную валидацию всех input

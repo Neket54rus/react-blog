@@ -15,6 +15,7 @@ export function buildWebpackConfig(option: BuildOptions): webpack.Configuration 
 			filename: '[name].[contenthash].js', // Название готового JS файла
 			path: option.paths.build, // Путь, куда будет собираться проект
 			clean: true, // Очищать папку с готовым проектом перед сборкой
+			publicPath: '/' // Нужно для корректной работы страниц
 		},
 		plugins: buildPlugins(option), // Плагины для Webpack
 		module: {
