@@ -1,6 +1,8 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import {
   ProfileCard,
   fetchProfileData,
@@ -10,6 +12,7 @@ import {
   selectProfileForm,
   selectProfileLoading,
   selectProfileReadonly,
+  selectProfileValidateErrors,
 } from '@/entities/Profile';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -19,8 +22,6 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageError } from '@/widgets/PageError';
 
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
 import cls from './ProfilePage.module.scss';
 
 const reducers: ReducersList = {
@@ -39,9 +40,12 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const isLoading = useSelector(selectProfileLoading);
   const error = useSelector(selectProfileError);
   const readonly = useSelector(selectProfileReadonly);
+  const validateErrors = useSelector(selectProfileValidateErrors);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const changeName = useCallback(
@@ -134,6 +138,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           changeAvatar={changeAvatar}
           onChangeCurrency={changeCurrency}
           onChangeCountry={changeCountry}
+          validateErrors={validateErrors}
         />
       </div>
     </DynamicModuleLoader>

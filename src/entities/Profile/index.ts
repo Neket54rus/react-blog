@@ -3,6 +3,7 @@ export { selectProfileError } from './model/selectors/selectProfileError/selectP
 export { selectProfileForm } from './model/selectors/selectProfileForm/selectProfileForm';
 export { selectProfileLoading } from './model/selectors/selectProfileLoading/selectProfileLoading';
 export { selectProfileReadonly } from './model/selectors/selectProfileReadonly/selectProfileReadonly';
+export { selectProfileValidateErrors } from './model/selectors/setProfileValidateErrors/setProfileValidateErrors';
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { profileActions, profileReducer } from './model/slice/profileSlice';

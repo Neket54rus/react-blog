@@ -31,15 +31,13 @@ describe('entities/Profile/fetchProfileData', () => {
     expect(result.payload).toEqual(data);
   });
 
-  // TODO:
-  // test('Проверка запроса с ошибкой', async () => {
-  //   const thunk = new TestAsyncThunk(fetchProfileData);
-  //   thunk.api.get.mockResolvedValue(Promise.resolve({ status: 403 }));
-  //   const result = await thunk.callThunk();
+  test('Проверка запроса с ошибкой', async () => {
+    const thunk = new TestAsyncThunk(fetchProfileData);
+    thunk.api.get.mockResolvedValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk();
 
-  //   expect(thunk.api.get).toHaveBeenCalled();
-  //   expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-  //   expect(result.meta.requestStatus).toBe('rejected');
-  //   expect(result.payload).toBe('error');
-  // });
+    expect(thunk.api.get).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toBe('rejected');
+    expect(result.payload).toBe('error');
+  });
 });

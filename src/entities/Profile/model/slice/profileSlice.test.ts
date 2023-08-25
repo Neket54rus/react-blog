@@ -2,8 +2,9 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
-import { Profile, ProfileSchema } from '../types/profile';
-import { profileReducer } from './profileSlice';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { Profile, ProfileSchema, ValidateProfileError } from '../types/profile';
+import { profileActions, profileReducer } from './profileSlice';
 
 const profile: Profile = {
   name: 'Никита',
@@ -23,12 +24,7 @@ describe('entities/Profile/profileSlice', () => {
       isLoading: true,
       data: {},
     };
-    expect(
-      profileReducer(
-        state as ProfileSchema,
-        fetchProfileData.fulfilled(profile, ''),
-      ),
-    ).toEqual({
+    expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled(profile, ''))).toEqual({
       isLoading: false,
       data: profile,
       form: profile,
@@ -37,5 +33,46 @@ describe('entities/Profile/profileSlice', () => {
     });
   });
 
-  // TODO: test profileActions.setReadonly(); test profileActions.updateProfile(); test profileActions.cancelEdit()
+  test('Проверка отмены редактирования', () => {
+    const state: DeepPartial<ProfileSchema> = {
+      readonly: false,
+      data: profile,
+      form: {},
+      validateErrors: [ValidateProfileError.INCORRECT_AGE],
+    };
+
+    expect(profileReducer(state as ProfileSchema, profileActions.cancelEdit())).toEqual({
+      readonly: true,
+      data: profile,
+      form: profile,
+      validateErrors: undefined,
+    });
+  });
+
+  test('Проверка обновления формы профиля', () => {
+    const state: DeepPartial<ProfileSchema> = {
+      form: profile,
+    };
+
+    const newProfile: Profile = { ...profile, name: 'Ksy' };
+
+    expect(profileReducer(state as ProfileSchema, profileActions.updateProfile(newProfile))).toEqual({
+      form: newProfile,
+    });
+  });
+
+  test('проверка обновления профиля', () => {
+    const state: DeepPartial<ProfileSchema> = {
+      isLoading: true,
+      data: {},
+    };
+
+    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(profile, ''))).toEqual({
+      error: '',
+      isLoading: false,
+      data: profile,
+      form: profile,
+      readonly: true,
+    });
+  });
 });

@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Currency, CurrencySelect } from '@/entities/Currency';
@@ -8,11 +8,11 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Loader } from '@/shared/ui/Loader/Loader';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
-import { Profile } from '../../model/types/profile';
+import { Profile, ValidateProfileError } from '../../model/types/profile';
 
 import { Country, CountrySelect } from '@/entities/Country';
 import cls from './ProfileCard.module.scss';
@@ -22,6 +22,7 @@ interface ProfileCardProps {
   data?: Profile;
   isLoading?: boolean;
   readonly?: boolean;
+  validateErrors?: ValidateProfileError[];
   changeName?: (value: string) => void;
   changeLastName?: (value: string) => void;
   changeAge?: (value: string) => void;
@@ -46,10 +47,24 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     changeAvatar,
     onChangeCurrency,
     onChangeCountry,
+    validateErrors,
   } = props;
 
   const { t } = useTranslation('profile-page');
   const dispatch = useAppDispatch();
+
+  const validateErrorTranslates = useMemo(
+    () => ({
+      [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
+      [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+      [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
+      [ValidateProfileError.INCORRECT_USER_DATA]: t(
+        'Некорректное имя или фамилия',
+      ),
+      [ValidateProfileError.NO_DATA]: t('Некорректные данные'),
+    }),
+    [t],
+  );
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -94,6 +109,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         </div>
         {editBtn}
       </div>
+      {validateErrors?.length &&
+        validateErrors.map((err) => (
+          <Text theme={TextTheme.ERROR}>{validateErrorTranslates[err]}</Text>
+        ))}
       <div className={cls.body}>
         <div className={cls.inputWrapper}>
           <Text noWrap>{`${t('Имя')}:`}</Text>
