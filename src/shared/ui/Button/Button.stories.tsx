@@ -49,6 +49,17 @@ OutlineRedDark.args = {
 };
 OutlineRedDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const OutlineBlackLight = Template.bind({});
+OutlineBlackLight.args = {
+  theme: ButtonTheme.OUTLINE_BLACK,
+};
+
+export const OutlineBlackDark = Template.bind({});
+OutlineBlackDark.args = {
+  theme: ButtonTheme.OUTLINE_BLACK,
+};
+OutlineBlackDark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const ClearLightDisabled = Template.bind({});
 ClearLightDisabled.args = {
   theme: ButtonTheme.CLEAR,
@@ -87,3 +98,16 @@ OutlineDarkRedDisabled.args = {
   disabled: true,
 };
 OutlineDarkRedDisabled.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const OutlineLightBlackDisabled = Template.bind({});
+OutlineLightBlackDisabled.args = {
+  theme: ButtonTheme.OUTLINE_BLACK,
+  disabled: true,
+};
+
+export const OutlineDarkBlackDisabled = Template.bind({});
+OutlineDarkBlackDisabled.args = {
+  theme: ButtonTheme.OUTLINE_BLACK,
+  disabled: true,
+};
+OutlineDarkBlackDisabled.decorators = [ThemeDecorator(Theme.DARK)];

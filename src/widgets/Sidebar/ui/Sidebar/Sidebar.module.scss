@@ -1,22 +1,25 @@
 .content {
     background: var(--bg-light-color);
     width: 220px;
-    height: 100%;
+    height: calc(100% - 64px);
     border-radius: 32px;
 
     // transition: width 0.4s, background 0.2s;
-    position: relative;
+    position: fixed;
     overflow: hidden;
 }
 
 .Sidebar {
     height: 100vh;
+    width: 252px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 32px 0 32px 32px;
 
     &.collapsed {
+        width: 82px;
+
         .content {
             width: 50px;
         }

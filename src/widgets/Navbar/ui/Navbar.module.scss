@@ -1,13 +1,8 @@
 .Navbar {
-    position: absolute;
+    position: fixed;
     top: 16px;
     right: 16px;
     display: flex;
     align-items: center;
     gap: 24px;
-}
-
-.logoImg {
-    width: 48px;
-    border-radius: 50%;
 }

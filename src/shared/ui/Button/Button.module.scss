@@ -21,7 +21,8 @@
 }
 
 .outline,
-.outline-red {
+.outline-red,
+.outlie-black {
     font-weight: 400;
     margin: 0;
     padding: 8px 16px;
@@ -43,5 +44,13 @@
 
     &:hover {
         box-shadow: 0 3px 10px 0 rgb(163 16 21 / 60%);
+    }
+}
+
+.outlie-black {
+    border: 1px solid var(--text-color);
+
+    &:hover {
+        box-shadow: 0 3px 10px 0 var(--hover-black-btn);
     }
 }

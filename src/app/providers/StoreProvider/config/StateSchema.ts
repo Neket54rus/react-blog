@@ -1,21 +1,19 @@
-import {
-  AnyAction,
-  CombinedState,
-  EnhancedStore,
-  Reducer,
-  ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
 import { ProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
+import { ArticleDetailsCommentsSchema } from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsSchema } from '@/widgets/ArticleDetails';
 
 export interface StateSchema {
   user: UserSchema;
   // Async
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

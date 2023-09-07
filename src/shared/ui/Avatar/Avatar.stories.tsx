@@ -15,8 +15,19 @@ export default {
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+  src: 'https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg',
+};
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+  src: 'https://bipbap.ru/wp-content/uploads/2022/11/1652235714_41-kartinkin-net-p-prikolnie-kartinki-dlya-stima-44.jpg',
+};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LightPlug = Template.bind({});
+LightPlug.args = {};
+
+export const DarkPlug = Template.bind({});
+DarkPlug.args = {};
+DarkPlug.decorators = [ThemeDecorator(Theme.DARK)];

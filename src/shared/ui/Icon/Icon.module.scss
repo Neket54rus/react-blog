@@ -1,0 +1,9 @@
+.Icon {
+    path {
+        fill: none;
+
+        &:last-child {
+            fill: var(--icon-color);
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.ArticleDetails {
+    margin-bottom: 24px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-bottom: 8px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+}
+
+.title,
+.subtitle {
+    font-family: Roboto, sans-serif;
+}

@@ -1,0 +1,13 @@
+.ArticleCodeBlockComponent {
+    background: var(--bg-light-color);
+    padding: 24px;
+    border-radius: 16px;
+    position: relative;
+    overflow: auto;
+}
+
+.copyBtn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}

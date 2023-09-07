@@ -1,0 +1,17 @@
+.CommentCard {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 16px;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 8px;
+    line-height: 16px;
+}
+
+.avatar {
+    flex: none;
+}

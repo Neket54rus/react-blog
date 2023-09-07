@@ -58,9 +58,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
       [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
       [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
-      [ValidateProfileError.INCORRECT_USER_DATA]: t(
-        'Некорректное имя или фамилия',
-      ),
+      [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректное имя или фамилия'),
       [ValidateProfileError.NO_DATA]: t('Некорректные данные'),
     }),
     [t],
@@ -104,15 +102,11 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div className={cls.header}>
-        <div className={cls.avatar}>
-          <Avatar src={data?.avatar} size={128} />
-        </div>
+        <Avatar className={cls.avatar} src={data?.avatar} size={128} />
         {editBtn}
       </div>
       {validateErrors?.length &&
-        validateErrors.map((err) => (
-          <Text theme={TextTheme.ERROR}>{validateErrorTranslates[err]}</Text>
-        ))}
+        validateErrors.map((err) => <Text theme={TextTheme.ERROR}>{validateErrorTranslates[err]}</Text>)}
       <div className={cls.body}>
         <div className={cls.inputWrapper}>
           <Text noWrap>{`${t('Имя')}:`}</Text>
@@ -166,11 +160,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         </div>
         <div className={cls.inputWrapper}>
           <Text noWrap>{`${t('Валюта')}:`}</Text>
-          <CurrencySelect
-            value={data?.currency}
-            onChange={onChangeCurrency}
-            disabled={readonly}
-          />
+          <CurrencySelect value={data?.currency} onChange={onChangeCurrency} disabled={readonly} />
         </div>
         <div className={cls.inputWrapper}>
           <Text noWrap>{`${t('Город')}:`}</Text>
@@ -184,11 +174,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         </div>
         <div className={cls.inputWrapper}>
           <Text noWrap>{`${t('Страна')}:`}</Text>
-          <CountrySelect
-            value={data?.country}
-            onChange={onChangeCountry}
-            disabled={readonly}
-          />
+          <CountrySelect value={data?.country} onChange={onChangeCountry} disabled={readonly} />
         </div>
       </div>
     </div>

@@ -1,24 +1,13 @@
 module.exports = {
   env: { browser: true, es2021: true, jest: true },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:i18next/recommended',
-    'prettier',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: { jsx: true },
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next',
-    'react-hooks',
-    'neket54-plugin',
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'neket54-plugin'],
   globals: {
     __IS_DEV__: true,
     __API__: true,
@@ -47,14 +36,7 @@ module.exports = {
       'error',
       {
         markupOnly: true,
-        ignoreAttribute: [
-          'data-testid',
-          'to',
-          'name',
-          'target',
-          'alt',
-          'direction',
-        ],
+        ignoreAttribute: ['data-testid', 'to', 'name', 'target', 'alt', 'direction', 'radius'],
       },
     ],
     'max-len': ['error', { code: 120, ignoreComments: true }],
@@ -79,11 +61,7 @@ module.exports = {
       'error',
       {
         alias: '@',
-        testFilesPatterns: [
-          '**/*.test.*',
-          '**/StoreDecorator.tsx',
-          '**/*.story.*',
-        ],
+        testFilesPatterns: ['**/*.test.*', '**/StoreDecorator.tsx', '**/*.story.*'],
       },
     ],
     'neket54-plugin/layer-imports': [
